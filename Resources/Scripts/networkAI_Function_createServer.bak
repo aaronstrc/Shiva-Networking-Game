@@ -1,0 +1,41 @@
+--------------------------------------------------------------------------------
+--  Function......... : createServer
+--  Author........... : Aaron Stricklin
+--  Description...... : creates a server for the users
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+function networkAI.createServer ( )
+--------------------------------------------------------------------------------
+	
+	--creates a server if there is none
+    network.createServer ( network.kDefaultServerPort )
+        
+    --gets the server name at 0 index
+    local sSName = network.getServerNameAt ( 0 )
+
+    --if there is a server set the server name
+    if(sSName ~= nil) then
+
+        this.sServerName ( sSName )
+
+        --sets the current server
+        network.setCurrentServer (  sSName )
+        
+        --gets the server
+        log.message ( network.getCurrentServer ( ), " ", network.getServerCount ( ) )
+    
+        return true
+    
+    --server failed to create
+    else
+        
+        log.warning ( "the Server was not created" )
+    
+        return false
+    
+    end
+    
+--------------------------------------------------------------------------------
+end
+--------------------------------------------------------------------------------

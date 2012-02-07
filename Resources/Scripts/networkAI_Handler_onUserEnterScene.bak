@@ -1,0 +1,37 @@
+--------------------------------------------------------------------------------
+--  Handler.......... : onUserEnterScene
+--  Author........... : Aaron Stricklin
+--  Description...... : 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+function networkAI.onUserEnterScene ( nUserID )
+--------------------------------------------------------------------------------
+    --Send our local user name to the new distant user
+    local nCUserID = user.getID ( this.getUser ( ) )
+    local sUserID = "AVATAR "..nCUserID
+    
+    log.warning ( sUserID )
+    
+    --gets the current user position
+    --to send to the other users
+    local hUserAvatar = scene.getTaggedObject ( user.getScene ( this.getUser ( ) ), sUserID )
+    
+    --checks if the users tagged object exist
+    if( hUserAvatar ~= nil ) then
+    
+        local x, y, z = object.getTranslation ( hUserAvatar, object.kGlobalSpace )
+    
+        --sends event to the user that joined your here now wait for reply
+        user.sendEvent ( application.getUser ( nUserID ), "Network_Connection", "onNewAvatar", nCUserID, x, y, z )
+    
+        log.message ( "User Enter Scene : ", nUserID )
+    
+    else
+        --messages out could not find tagged object
+        log.warning ( "could not find tagged object" )
+        
+    end
+--------------------------------------------------------------------------------
+end
+--------------------------------------------------------------------------------

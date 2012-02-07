@@ -1,0 +1,19 @@
+
+
+
+
+
+
+
+function networkAI.connectToServer()
+
+
+local sSName=network.getServerNameAt(0)
+
+if(sSName~=nil)then
+network.setCurrentServer(sSName)
+
+log.message("a server is here ")
+end
+
+end

@@ -1,0 +1,15 @@
+
+
+
+
+
+
+
+function mainAI.onInit()
+
+
+
+application.setCurrentUserScene("mainLobby")
+
+
+end

@@ -1,0 +1,26 @@
+
+
+
+
+
+
+
+function networkAI.onNewAvatar(nUserID,posX,posY,posZ)
+
+
+
+
+local sUserID="AVATAR "..nUserID
+
+
+user.sendEvent(this.getUser(),"mainAI","onAddAvatar",sUserID,posX,posY,posZ)
+
+
+local hUAvatar=application.getCurrentUserSceneTaggedObject(this.sUserID())
+local x,y,z=object.getTranslation(hUAvatar,object.kGlobalSpace)
+
+
+user.sendEvent(application.getUser(nUserID),"networkAI","onReply",user.getID(this.getUser()),x,y,z)
+
+
+end

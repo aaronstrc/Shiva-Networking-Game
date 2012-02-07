@@ -1,0 +1,19 @@
+
+
+
+
+
+
+
+function networkAI.onReply(nUserID,posX,posY,posZ)
+
+
+
+
+local sUserID="AVATAR "..nUserID
+
+
+user.sendEvent(this.getUser(),"mainAI","onAddAvatar",sUserID,posX,posY,posZ)
+
+
+end

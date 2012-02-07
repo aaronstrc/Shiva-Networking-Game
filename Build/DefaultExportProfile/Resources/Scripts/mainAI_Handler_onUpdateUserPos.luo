@@ -1,0 +1,16 @@
+
+
+
+
+
+
+
+function mainAI.onUpdateUserPos(sUser,sUserId,xPos,yPos,zPos)
+
+
+
+
+
+
+
+end

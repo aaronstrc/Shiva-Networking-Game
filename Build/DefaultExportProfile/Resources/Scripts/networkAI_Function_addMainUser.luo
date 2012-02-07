@@ -1,0 +1,45 @@
+
+
+
+
+
+
+
+function networkAI.addMainUser()
+
+
+
+this.bIdSet(true)
+
+
+this.nUserId(user.getID(this.getUser()))
+
+if(this.nUserId()~=nil)then
+
+this.sUserID("AVATAR"..this.nUserId())
+
+local hScene=application.getCurrentUserScene()
+
+
+
+if(hScene~=nil)then
+
+local hRObject=scene.createRuntimeObject(hScene,"tBox")
+
+
+
+if(hRObject~=nil)then
+
+scene.setObjectTag(hScene,hRObject,this.sUserID())
+
+
+object.setTranslation(hRObject,math.random(-4,4),0,math.random(-4,4),object.kGlobalSpace)
+
+log.message("added the main Avatar: ")
+
+end
+end
+
+end
+
+end

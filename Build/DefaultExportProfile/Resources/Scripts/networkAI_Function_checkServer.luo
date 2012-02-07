@@ -1,0 +1,33 @@
+
+
+
+
+
+
+
+
+function networkAI.checkServer()
+
+
+
+if(string.isEmpty(this.sServerIP()))
+then
+
+
+log.error("You must set a Initial value to the variable sServerIP.\nEdit the AIModel named 'Network_Connection'.")
+
+else
+
+
+network.setCurrentServer(this.sServerIP())
+
+
+local nStatus=network.getStatus()
+
+log.message(nStatus)
+
+end
+
+
+
+end

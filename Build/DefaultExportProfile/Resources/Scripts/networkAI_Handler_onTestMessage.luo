@@ -1,0 +1,16 @@
+
+
+
+
+
+
+
+function networkAI.onTestMessage()
+
+
+
+
+log.message("got users message")
+
+
+end

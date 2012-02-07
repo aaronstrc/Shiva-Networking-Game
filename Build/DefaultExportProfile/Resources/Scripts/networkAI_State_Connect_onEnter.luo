@@ -1,0 +1,18 @@
+
+
+
+
+
+
+
+function networkAI.Connect_onEnter()
+
+
+
+
+
+this.checkServer()
+
+log.message("checked server")
+
+end

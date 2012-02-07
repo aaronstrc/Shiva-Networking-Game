@@ -1,0 +1,40 @@
+
+
+
+
+
+
+
+function networkAI.createServer()
+
+
+
+network.createServer(network.kDefaultServerPort)
+
+
+local sSName=network.getServerNameAt(0)
+
+
+if(sSName~=nil)then
+
+this.sServerName(sSName)
+
+
+network.setCurrentServer(sSName)
+
+
+log.message(network.getCurrentServer()," ",network.getServerCount())
+
+return true
+
+
+else
+
+log.warning("the Server was not created")
+
+return false
+
+end
+
+
+end

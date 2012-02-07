@@ -1,0 +1,36 @@
+
+
+
+
+
+
+
+function networkAI.onUserEnterScene(nUserID)
+
+
+local nCUserID=user.getID(this.getUser())
+local sUserID="AVATAR "..nCUserID
+
+log.warning(sUserID)
+
+
+
+local hUserAvatar=scene.getTaggedObject(user.getScene(this.getUser()),sUserID)
+
+
+if(hUserAvatar~=nil)then
+
+local x,y,z=object.getTranslation(hUserAvatar,object.kGlobalSpace)
+
+
+user.sendEvent(application.getUser(nUserID),"Network_Connection","onNewAvatar",nCUserID,x,y,z)
+
+log.message("User Enter Scene : ",nUserID)
+
+else
+
+log.warning("could not find tagged object")
+
+end
+
+end

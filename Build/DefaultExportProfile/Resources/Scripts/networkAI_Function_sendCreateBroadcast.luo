@@ -1,0 +1,48 @@
+
+
+
+
+
+
+
+function networkAI.sendCreateBroadcast(nUserID)
+
+
+log.warning(nUserID)
+
+
+
+
+local hUserAvatar=scene.getTaggedObject(user.getScene(this.getUser()),this.sUserID())
+
+log.warning(nUserID)
+
+
+if(hUserAvatar~=nil)then
+
+local x,y,z=object.getTranslation(hUserAvatar,object.kGlobalSpace)
+
+
+local nUserC=scene.getUserCount(user.getScene(this.getUser()))
+
+if(nUserC>1)then
+
+
+scene.sendEventToAllUsers(user.getScene(this.getUser()),"Network_Connection","onNewAvatar",nUserID,x,y,z)
+
+log.message("User Enter Scene : ",nUserID)
+else
+
+log.message(" only one user ")
+
+end
+
+
+else
+
+log.warning("could not find tagged object")
+
+end
+
+
+end
