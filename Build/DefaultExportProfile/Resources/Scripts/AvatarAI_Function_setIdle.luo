@@ -1,0 +1,34 @@
+
+
+
+
+
+
+
+function AvatarAI.setIdle()
+
+
+
+
+
+local hasAnimation=object.hasController(this.hAvatar(),object.kControllerTypeAnimation)
+
+
+if(hasAnimation==true)then
+
+animation.setCurrentClip(this.hAvatar(),0,hashtable.get(this.htAnimations(),"idle"))
+
+
+
+
+
+animation.setPlaybackKeyFrameBegin(this.hAvatar(),0,hashtable.get(this.htAnimations(),"idle_begin"))
+
+
+animation.setPlaybackKeyFrameEnd(this.hAvatar(),0,hashtable.get(this.htAnimations(),"idle_end"))
+
+end
+
+
+end
+

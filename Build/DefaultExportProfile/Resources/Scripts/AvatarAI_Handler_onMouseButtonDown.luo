@@ -1,0 +1,17 @@
+
+
+
+
+
+
+
+function AvatarAI.onMouseButtonDown(nButton,nPointX,nPointY,nRayPntX,nRayPntY,nRayPntZ,nRayDirX,nRayDirY,nRayDirZ)
+
+
+
+
+this.bPunch(true)
+
+
+end
+

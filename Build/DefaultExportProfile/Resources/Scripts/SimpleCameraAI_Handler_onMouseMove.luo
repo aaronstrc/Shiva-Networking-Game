@@ -1,0 +1,16 @@
+
+
+
+
+
+
+
+function SimpleCameraAI.onMouseMove(nPointX,nPointY,nDeltaX,nDeltaY,nRayPntX,nRayPntY,nRayPntZ,nRayDirX,nRayDirY,nRayDirZ)
+
+
+
+
+object.rotate(this.hSimpleCamera(),0,-nDeltaX*360,0,object.kLocalSpace)
+
+
+end

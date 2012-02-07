@@ -1,0 +1,25 @@
+
+
+
+
+
+
+
+function AvatarAI.idle_onLoop()
+
+
+
+if(this.nHandlerCount()>0)then
+
+this.handleRun()
+
+
+elseif(this.nHandlerCount()<=0)then
+
+this.handleIdle()
+
+end
+
+
+end
+

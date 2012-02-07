@@ -1,0 +1,35 @@
+
+
+
+
+
+
+
+function AvatarAI.setRun()
+
+
+
+
+
+local hasAnimation=object.hasController(this.hAvatar(),object.kControllerTypeAnimation)
+
+
+if(hasAnimation==true)then
+
+
+animation.setCurrentClip(this.hAvatar(),0,hashtable.get(this.htAnimations(),"run"))
+
+
+
+
+
+animation.setPlaybackKeyFrameBegin(this.hAvatar(),0,hashtable.get(this.htAnimations(),"run_begin"))
+
+
+animation.setPlaybackKeyFrameEnd(this.hAvatar(),0,hashtable.get(this.htAnimations(),"run_end"))
+
+end
+
+
+
+end

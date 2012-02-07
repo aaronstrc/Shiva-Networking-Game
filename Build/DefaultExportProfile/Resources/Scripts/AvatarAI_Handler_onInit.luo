@@ -1,0 +1,22 @@
+
+
+
+
+
+
+
+function AvatarAI.onInit()
+
+
+
+this.hAvatar(this.getObject())
+
+
+if(this.hAvatar()~=nil)then
+this.setAnimations()
+this.setIdle()
+
+end
+
+
+end

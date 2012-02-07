@@ -1,0 +1,30 @@
+
+
+
+
+
+
+
+function AvatarAI.setPunch()
+
+
+
+
+
+local hasAnimation=object.hasController(this.hAvatar(),object.kControllerTypeAnimation)
+
+
+if(hasAnimation==true)then
+
+animation.setCurrentClip(this.hAvatar(),0,hashtable.get(this.htAnimations(),"punch"))
+
+
+animation.setPlaybackKeyFrameBegin(this.hAvatar(),0,hashtable.get(this.htAnimations(),"punch_begin"))
+
+
+animation.setPlaybackKeyFrameEnd(this.hAvatar(),0,hashtable.get(this.htAnimations(),"punch_end"))
+
+end
+
+
+end
