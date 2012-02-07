@@ -24,20 +24,26 @@ function networkAI.sendCreateBroadcast ( nUserID )
     
         --get user count to see whether or not we need to broadcast
         local nUserC = scene.getUserCount ( user.getScene ( this.getUser ( ) ) )
-    
-        if(nUserC > 1) then
         
-            --sends event to the user that joined your here now wait for reply
-            scene.sendEventToAllUsers ( user.getScene ( this.getUser ( ) ), "Network_Connection", "onNewAvatar", nUserID, x, y, z )
-    
-            log.message ( "User Enter Scene : ", nUserID )
-        else
+        --sends to all the users except 
+        for i=0, nUserC-1, 1 do
         
-            log.message ( " only one user " )
+            local hUIScene = scene.getUserAt ( user.getScene ( this.getUser ( ) ), i )
         
+            --not current user send message
+            if( user.getID ( hUIScene ) ~= nUserID ) then
+        
+                log.warning( "User Enter Scene : ", hUIScene )
+                user.sendEvent ( hUIScene, "networkAI", "onNewAvatar", nUserID, x, y, z )
+            
+            end
         end
         
+        --sends event to the user that joined your here now wait for reply
+        --scene.sendEventToAllUsers ( user.getScene ( this.getUser ( ) ), "networkAI", "onNewAvatar", nUserID, x, y, z )
     
+        log.warning( "User Enter Scene : ", nUserID )
+        
     else
         --messages out could not find tagged object
         log.warning ( "could not find tagged object" )

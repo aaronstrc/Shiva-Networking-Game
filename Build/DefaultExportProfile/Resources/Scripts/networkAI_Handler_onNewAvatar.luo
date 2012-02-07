@@ -8,12 +8,14 @@
 function networkAI.onNewAvatar(nUserID,posX,posY,posZ)
 
 
+log.warning("made it to onNewAvatar")
 
 
-local sUserID="AVATAR "..nUserID
+
+local sUserId="AVATAR "..nUserID
 
 
-user.sendEvent(this.getUser(),"mainAI","onAddAvatar",sUserID,posX,posY,posZ)
+user.sendEvent(this.getUser(),"mainAI","onAddAvatar",sUserId,posX,posY,posZ)
 
 
 local hUAvatar=application.getCurrentUserSceneTaggedObject(this.sUserID())
@@ -24,3 +26,4 @@ user.sendEvent(application.getUser(nUserID),"networkAI","onReply",user.getID(thi
 
 
 end
+

@@ -25,18 +25,24 @@ local x,y,z=object.getTranslation(hUserAvatar,object.kGlobalSpace)
 
 local nUserC=scene.getUserCount(user.getScene(this.getUser()))
 
-if(nUserC>1)then
+
+for i=0,nUserC-1,1 do
+
+local hUIScene=scene.getUserAt(user.getScene(this.getUser()),i)
 
 
-scene.sendEventToAllUsers(user.getScene(this.getUser()),"Network_Connection","onNewAvatar",nUserID,x,y,z)
+if(user.getID(hUIScene)~=nUserID)then
 
-log.message("User Enter Scene : ",nUserID)
-else
-
-log.message(" only one user ")
+log.warning("User Enter Scene : ",hUIScene)
+user.sendEvent(hUIScene,"networkAI","onNewAvatar",nUserID,x,y,z)
 
 end
+end
 
+
+
+
+log.warning("User Enter Scene : ",nUserID)
 
 else
 
@@ -46,3 +52,4 @@ end
 
 
 end
+

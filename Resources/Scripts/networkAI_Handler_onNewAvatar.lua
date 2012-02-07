@@ -8,12 +8,14 @@
 function networkAI.onNewAvatar ( nUserID, posX, posY, posZ )
 --------------------------------------------------------------------------------
 	
+    log.warning ( "made it to onNewAvatar" )
+    
     --creates the user name the sends event
     --to the main ai to create the avatar
-    local sUserID = "AVATAR "..nUserID
+    local sUserId = "AVATAR "..nUserID
 	
     --sends event to the main ai
-    user.sendEvent ( this.getUser ( ), "mainAI", "onAddAvatar", sUserID,  posX, posY, posZ)
+    user.sendEvent ( this.getUser ( ), "mainAI", "onAddAvatar", sUserId,  posX, posY, posZ)
     
     --gets current user position
     local hUAvatar = application.getCurrentUserSceneTaggedObject ( this.sUserID ( ) )

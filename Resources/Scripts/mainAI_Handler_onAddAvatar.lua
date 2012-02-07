@@ -39,12 +39,16 @@ function mainAI.onAddAvatar ( sName, posX, posY, posZ )
                 
                 object.setTranslation ( hRObject, posX, posY, posZ, object.kGlobalSpace )
                 
-                log.message ( "added the box: ", sName )
+                log.warning ( " should have added new avatar " )
             
             end
         end
+    else
+    
+        log.warning ( " wasn't a string " )
+    
     end
-	
+    
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------
