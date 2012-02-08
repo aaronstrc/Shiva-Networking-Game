@@ -7,15 +7,24 @@
 --------------------------------------------------------------------------------
 function SimpleCameraAI.onInit (  )
 --------------------------------------------------------------------------------
-	
-    this.hSimpleCamera ( this.getObject ( ) )
-    this.hAvatar ( application.getCurrentUserSceneTaggedObject ("gingy"))
+
+    --gets the current user id
+    this.nUserID(user.getID ( application.getCurrentUser ( )))
     
-    object.matchRotation ( this.hSimpleCamera ( ), this.hAvatar ( ), object.kGlobalSpace )
-    object.setRotation ( this.hSimpleCamera ( ), 0, 180, 0, object.kLocalSpace )
-    object.matchTranslation ( this.hSimpleCamera ( ), this.hAvatar ( ), object.kGlobalSpace )
-    object.translate ( this.hSimpleCamera ( ), 0, 1.5, 5, object.kLocalSpace )
+    this.sUser( "AVATAR "..this.nUserID() )
+    
+    --gets the camera and avatar object
+    this.hSimpleCamera ( this.getObject ( ) )
+    
+    this.hAvatar ( scene.getTaggedObject ( object.getScene ( this.getObject ( ) ), this.sUser ( ) ))
+    
+    --checks to see if the avatar exist
+    if(this.hAvatar ( ) ~= nil) then
+    
+        --calls a function to match the avatar
+        this.matchAvatar ( )
 	
+    end
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

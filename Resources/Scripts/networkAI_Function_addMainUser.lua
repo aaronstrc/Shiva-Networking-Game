@@ -16,7 +16,7 @@ function networkAI.addMainUser ( )
     
     if( this.nUserId() ~= nil) then
         
-        this.sUserID ( "AVATAR"..this.nUserId() )
+        this.sUserID ( "AVATAR "..this.nUserId() )
         
         local hScene = application.getCurrentUserScene ( )
     

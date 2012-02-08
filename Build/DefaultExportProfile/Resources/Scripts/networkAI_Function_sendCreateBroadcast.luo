@@ -8,14 +8,10 @@
 function networkAI.sendCreateBroadcast(nUserID)
 
 
-log.warning(nUserID)
-
 
 
 
 local hUserAvatar=scene.getTaggedObject(user.getScene(this.getUser()),this.sUserID())
-
-log.warning(nUserID)
 
 
 if(hUserAvatar~=nil)then
@@ -33,16 +29,12 @@ local hUIScene=scene.getUserAt(user.getScene(this.getUser()),i)
 
 if(user.getID(hUIScene)~=nUserID)then
 
-log.warning("User Enter Scene : ",hUIScene)
 user.sendEvent(hUIScene,"networkAI","onNewAvatar",nUserID,x,y,z)
 
 end
 end
 
-
-
-
-log.warning("User Enter Scene : ",nUserID)
+user.sendEvent(this.getUser(),"mainAI","onsetCamera")
 
 else
 

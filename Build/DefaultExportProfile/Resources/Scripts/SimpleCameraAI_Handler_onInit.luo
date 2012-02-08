@@ -8,13 +8,23 @@
 function SimpleCameraAI.onInit()
 
 
+
+this.nUserID(user.getID(application.getCurrentUser()))
+
+this.sUser("AVATAR "..this.nUserID())
+
+
 this.hSimpleCamera(this.getObject())
-this.avatar(application.getCurrentUserSceneTaggedObject("gingy"))
 
-object.matchRotation(this.hSimpleCamera(),this.avatar(),object.kGlobalSpace)
-object.setRotation(this.hSimpleCamera(),0,180,0,object.kLocalSpace)
-object.matchTranslation(this.hSimpleCamera(),this.avatar(),object.kGlobalSpace)
-object.translate(this.hSimpleCamera(),0,1.5,5,object.kLocalSpace)
+this.hAvatar(scene.getTaggedObject(object.getScene(this.getObject()),this.sUser()))
 
+
+if(this.hAvatar()~=nil)then
+
+
+this.matchAvatar()
 
 end
+
+end
+

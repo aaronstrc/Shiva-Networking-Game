@@ -1,27 +1,16 @@
 --------------------------------------------------------------------------------
---  Handler.......... : onKeyboardKeyDown
+--  Handler.......... : onKeyboardKeyUp
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function SimpleCameraAI.onKeyboardKeyDown ( kKeyCode )
+function mainAI.onKeyboardKeyUp ( kKeyCode )
 --------------------------------------------------------------------------------
 	
-    
-    if ( kKeyCode == input.kKeyW ) then
-        this.bMoveForward ( true )
-    end
-    if ( kKeyCode == input.kKeyA ) then
-        this.bRotateLeft ( true )
-    end
-    if ( kKeyCode == input.kKeyS ) then
-        this.bMoveBackward ( true )
-    end
-    if ( kKeyCode == input.kKeyD ) then
-        this.bRotateRight ( true )
-    end
-    
+    if(this.hSimpleCamera1 ( ) ~= nil) then
+        object.sendEvent ( this.hSimpleCamera1 ( ),  "SimpleCameraAI", "onKeyboardKeyUp", kKeyCode )
+	end
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

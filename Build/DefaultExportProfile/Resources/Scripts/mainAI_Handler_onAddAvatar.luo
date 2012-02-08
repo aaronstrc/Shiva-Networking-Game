@@ -8,12 +8,10 @@
 function mainAI.onAddAvatar(sName,posX,posY,posZ)
 
 
-log.warning(sName)
-
 
 if(not string.isEmpty(sName))then
 
-local hScene=application.getCurrentUserScene()
+local hScene=user.getScene(this.getUser())
 
 
 
@@ -38,8 +36,6 @@ end
 scene.setObjectTag(hScene,hRObject,sName)
 
 object.setTranslation(hRObject,posX,posY,posZ,object.kGlobalSpace)
-
-log.warning(" should have added new avatar ")
 
 end
 end

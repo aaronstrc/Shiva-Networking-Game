@@ -1,0 +1,32 @@
+
+
+
+
+
+
+
+function SimpleCameraAI.broadCastRot()
+
+
+
+local x,y,z=object.getRotation(this.hAvatar(),object.kGlobalSpace)
+
+
+local nCount=scene.getUserCount(application.getCurrentUserScene())
+
+
+for i=0,nCount-1,1 do
+
+local hUserInScene=scene.getUserAt(application.getCurrentUserScene(),i)
+
+
+if(hUserInScene~=application.getCurrentUser())then
+
+
+user.sendEvent(hUserInScene,"mainAI","onMoveRot",this.sUser(),x,y,z)
+
+end
+end
+
+
+end

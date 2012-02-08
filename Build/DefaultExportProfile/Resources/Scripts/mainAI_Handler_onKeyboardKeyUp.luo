@@ -1,0 +1,15 @@
+
+
+
+
+
+
+
+function mainAI.onKeyboardKeyUp(kKeyCode)
+
+
+if(this.hSimpleCamera1()~=nil)then
+object.sendEvent(this.hSimpleCamera1(),"SimpleCameraAI","onKeyboardKeyUp",kKeyCode)
+end
+
+end

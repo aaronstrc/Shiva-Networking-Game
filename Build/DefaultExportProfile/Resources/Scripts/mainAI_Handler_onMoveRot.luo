@@ -5,7 +5,7 @@
 
 
 
-function mainAI.onMovePos(sName,posX,posY,posZ)
+function mainAI.onMoveRot(sName,posX,posY,posZ)
 
 
 
@@ -15,10 +15,9 @@ local hUser=scene.getTaggedObject(application.getCurrentUserScene(),sName)
 
 if(hUser~=nil)then
 
-object.setTranslation(hUser,posX,posY,posZ,object.kGlobalSpace)
+object.setRotation(hUser,posX,posY,posZ,object.kGlobalSpace)
 
 end
 
 
 end
-

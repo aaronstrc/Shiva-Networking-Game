@@ -5,23 +5,12 @@
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function SimpleCameraAI.onKeyboardKeyDown ( kKeyCode )
+function mainAI.onKeyboardKeyDown ( kKeyCode )
 --------------------------------------------------------------------------------
-	
     
-    if ( kKeyCode == input.kKeyW ) then
-        this.bMoveForward ( true )
+    if(this.hSimpleCamera1 ( ) ~= nil) then
+        object.sendEvent ( this.hSimpleCamera1 ( ),  "SimpleCameraAI", "onKeyboardKeyDown", kKeyCode )
     end
-    if ( kKeyCode == input.kKeyA ) then
-        this.bRotateLeft ( true )
-    end
-    if ( kKeyCode == input.kKeyS ) then
-        this.bMoveBackward ( true )
-    end
-    if ( kKeyCode == input.kKeyD ) then
-        this.bRotateRight ( true )
-    end
-    
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

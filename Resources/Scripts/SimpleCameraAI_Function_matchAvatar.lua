@@ -1,27 +1,19 @@
 --------------------------------------------------------------------------------
---  Handler.......... : onKeyboardKeyDown
---  Author........... : 
+--  Function......... : matchAvatar
+--  Author........... : Aaron Stricklin
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function SimpleCameraAI.onKeyboardKeyDown ( kKeyCode )
+function SimpleCameraAI.matchAvatar ( )
 --------------------------------------------------------------------------------
 	
-    
-    if ( kKeyCode == input.kKeyW ) then
-        this.bMoveForward ( true )
-    end
-    if ( kKeyCode == input.kKeyA ) then
-        this.bRotateLeft ( true )
-    end
-    if ( kKeyCode == input.kKeyS ) then
-        this.bMoveBackward ( true )
-    end
-    if ( kKeyCode == input.kKeyD ) then
-        this.bRotateRight ( true )
-    end
-    
+    --matches the the camera and avatar
+	object.matchRotation ( this.hSimpleCamera ( ), this.hAvatar ( ), object.kGlobalSpace )
+    object.setRotation ( this.hSimpleCamera ( ), 0, 180, 0, object.kLocalSpace )
+    object.matchTranslation ( this.hSimpleCamera ( ), this.hAvatar ( ), object.kGlobalSpace )
+    object.translate ( this.hSimpleCamera ( ), 0, 1.5, 5, object.kLocalSpace )
+	
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

@@ -1,0 +1,31 @@
+
+
+
+
+
+
+
+function SimpleCameraAI.broadCastPos()
+
+
+
+local x,y,z=object.getTranslation(this.hAvatar(),object.kGlobalSpace)
+
+
+local nCount=scene.getUserCount(application.getCurrentUserScene())
+
+
+for i=0,nCount-1,1 do
+
+local hUserInScene=scene.getUserAt(application.getCurrentUserScene(),i)
+
+
+if(hUserInScene~=application.getCurrentUser())then
+
+
+user.sendEvent(hUserInScene,"mainAI","onMovePos",this.sUser(),x,y,z)
+
+end
+end
+
+end

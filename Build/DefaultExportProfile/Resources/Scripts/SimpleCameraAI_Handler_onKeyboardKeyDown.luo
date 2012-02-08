@@ -8,6 +8,7 @@
 function SimpleCameraAI.onKeyboardKeyDown(kKeyCode)
 
 
+
 if(kKeyCode==input.kKeyW)then
 this.bMoveForward(true)
 end
@@ -23,3 +24,4 @@ end
 
 
 end
+

@@ -7,15 +7,11 @@
 --------------------------------------------------------------------------------
 function networkAI.sendCreateBroadcast ( nUserID )
 --------------------------------------------------------------------------------
-	
-    log.warning ( nUserID )
     
     --Send our local user name to the new distant user
     --gets the current user position
     --to send to the other users
     local hUserAvatar = scene.getTaggedObject ( user.getScene ( this.getUser ( ) ), this.sUserID ( ) )
-    
-    log.warning ( nUserID )
     
     --checks if the users tagged object exist
     if( hUserAvatar ~= nil ) then
@@ -33,16 +29,12 @@ function networkAI.sendCreateBroadcast ( nUserID )
             --not current user send message
             if( user.getID ( hUIScene ) ~= nUserID ) then
         
-                log.warning( "User Enter Scene : ", hUIScene )
                 user.sendEvent ( hUIScene, "networkAI", "onNewAvatar", nUserID, x, y, z )
             
             end
         end
         
-        --sends event to the user that joined your here now wait for reply
-        --scene.sendEventToAllUsers ( user.getScene ( this.getUser ( ) ), "networkAI", "onNewAvatar", nUserID, x, y, z )
-    
-        log.warning( "User Enter Scene : ", nUserID )
+        user.sendEvent ( this.getUser ( ), "mainAI", "onsetCamera" )
         
     else
         --messages out could not find tagged object
